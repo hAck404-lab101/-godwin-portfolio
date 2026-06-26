@@ -45,7 +45,7 @@ export default function PortfolioHeader() {
           <button
             ref={buttonRef}
             type="button"
-            className="group relative z-50 grid h-12 w-12 place-items-center rounded-full border border-white/10 bg-black/35 text-zinc-400 backdrop-blur-xl transition hover:text-white"
+            className="group relative z-50 grid h-12 w-12 place-items-center rounded-full border border-[#f3e7c8]/15 bg-[#05040a]/55 text-[#d8b76a] shadow-2xl shadow-black/30 backdrop-blur-xl transition hover:border-[#d8b76a]/40 hover:text-[#f3e7c8]"
             aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
             onClick={() => setIsMenuOpen((value) => !value)}
           >
@@ -72,14 +72,14 @@ export default function PortfolioHeader() {
           {isMenuOpen && (
             <div
               ref={menuRef}
-              className="absolute left-0 top-full mt-3 w-[220px] rounded-2xl border border-white/10 bg-black/90 p-4 shadow-2xl shadow-black/50 backdrop-blur-2xl"
+              className="absolute left-0 top-full mt-3 w-[220px] rounded-2xl border border-[#f3e7c8]/15 bg-[#05040a]/95 p-4 shadow-2xl shadow-black/60 backdrop-blur-2xl"
             >
               {menuItems.map((item) => (
                 <a
                   key={item.label}
                   href={item.href}
-                  className={`block rounded-xl px-3 py-2 text-lg font-black tracking-tight transition hover:bg-white/10 hover:text-[#c3e41d] ${
-                    item.highlight ? 'text-[#c3e41d]' : 'text-white'
+                  className={`block rounded-xl px-3 py-2 text-lg font-black tracking-tight transition hover:bg-[#d8b76a]/10 hover:text-[#d8b76a] ${
+                    item.highlight ? 'text-[#d8b76a]' : 'text-[#f7f2e8]'
                   }`}
                   onClick={() => setIsMenuOpen(false)}
                 >
@@ -90,26 +90,26 @@ export default function PortfolioHeader() {
           )}
         </div>
 
-        <a href="#home" className="absolute left-1/2 -translate-x-1/2 text-center">
-          <span className="block text-2xl font-semibold tracking-[-0.05em] text-white md:text-3xl">Godwin</span>
-          <span className="mt-0.5 block text-[10px] font-semibold uppercase tracking-[0.32em] text-[#c3e41d]">Sozo Kumah</span>
+        <a href="#home" className="absolute left-1/2 -translate-x-1/2 text-center font-display">
+          <span className="block text-2xl font-semibold tracking-[-0.05em] text-[#f7f2e8] md:text-3xl">Godwin</span>
+          <span className="mt-0.5 block text-[10px] font-semibold uppercase tracking-[0.32em] text-[#d8b76a]">Sozo Kumah</span>
         </a>
 
         <div className="flex items-center gap-3">
           <a
             href="#contact"
-            className="hidden rounded-full border border-white/10 bg-black/35 px-4 py-2 text-xs font-bold uppercase tracking-[0.22em] text-zinc-300 backdrop-blur-xl transition hover:text-white md:inline-flex"
+            className="hidden rounded-full border border-[#f3e7c8]/15 bg-[#05040a]/55 px-4 py-2 text-xs font-bold uppercase tracking-[0.22em] text-[#f3e7c8]/80 shadow-2xl shadow-black/20 backdrop-blur-xl transition hover:border-[#d8b76a]/40 hover:text-[#d8b76a] md:inline-flex"
           >
             DiMiles
           </a>
           <button
             type="button"
             onClick={() => setIsLight((value) => !value)}
-            className="relative h-8 w-16 rounded-full border border-white/10 bg-white/10 transition hover:opacity-80"
+            className="relative h-8 w-16 rounded-full border border-[#f3e7c8]/15 bg-[#f3e7c8]/10 transition hover:opacity-80"
             aria-label="Toggle portfolio contrast"
           >
             <span
-              className={`absolute top-1 h-6 w-6 rounded-full bg-white transition-transform duration-300 ${
+              className={`absolute top-1 h-6 w-6 rounded-full bg-gradient-to-br from-[#f7f2e8] to-[#d8b76a] shadow-lg shadow-[#d8b76a]/20 transition-transform duration-300 ${
                 isLight ? 'translate-x-1' : 'translate-x-8'
               }`}
             />

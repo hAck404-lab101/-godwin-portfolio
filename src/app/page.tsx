@@ -1,301 +1,340 @@
-'use client';
-
-import { motion } from 'framer-motion';
-import { ArrowUpRight, Code2, Mail, MapPin, MessageCircle } from 'lucide-react';
-
-const navItems = ['About', 'Projects', 'Skills', 'Services', 'Contact'];
+const navItems = ['Work', 'Projects', 'Stack', 'Services', 'Contact'];
 
 const projects = [
   {
     title: 'Chiq-N-Grill Ordering System',
-    description: 'Restaurant ordering platform with website, WhatsApp-style ordering, admin/kitchen dashboard, and mobile app concept.',
-    problem: 'Helps the restaurant control direct orders and reduce confusion from fake listings or third-party order flow.',
-    tags: ['Next.js', 'Supabase', 'Tailwind CSS', 'Admin Dashboard', 'Ordering System'],
+    category: 'Restaurant system',
+    description: 'Website ordering, WhatsApp-style flow, staff/admin control, kitchen workflow, and mobile app direction.',
+    outcome: 'Direct orders without forcing website customers through WhatsApp.',
+    tags: ['Next.js', 'Supabase', 'Orders', 'Dashboard'],
     initials: 'CG',
   },
   {
     title: 'Dues Management System',
-    description: 'Student dues payment and admin management system with login, payment tracking, receipts, and dashboard.',
-    problem: 'Helps departments manage student dues digitally and reduce manual payment records.',
-    tags: ['React', 'Node.js', 'MySQL', 'Paystack', 'Dashboard'],
+    category: 'Student payment platform',
+    description: 'Student login, dues assignment, Paystack payment, receipts, manual approvals, and admin tracking.',
+    outcome: 'A cleaner way for departments to manage dues and payment records.',
+    tags: ['React', 'Node.js', 'MySQL', 'Paystack'],
     initials: 'DM',
   },
   {
     title: 'Royal Hawk Hotel Website',
-    description: 'Hotel website focused on trust, online visibility, booking interest, and business presentation.',
-    problem: 'Improves the hotel’s digital presence and customer confidence.',
-    tags: ['Website', 'SEO', 'Booking Flow', 'Business Website'],
+    category: 'Hospitality website',
+    description: 'Booking-focused hotel presence built around trust, rooms, services, contact flow, and visibility.',
+    outcome: 'A more professional digital front desk for hotel customers.',
+    tags: ['Website', 'SEO', 'Booking', 'Business'],
     initials: 'RH',
   },
   {
     title: 'HTH Hospital Map / Intern System',
-    description: 'Hospital navigation and intern attendance concept for improving movement, tracking, and admin records.',
-    problem: 'Helps users find hospital locations and helps admins manage intern records.',
-    tags: ['Web App', 'Admin System', 'Navigation', 'Records'],
+    category: 'Institution workflow',
+    description: 'Hospital map concept and intern attendance/records system for easier movement and admin tracking.',
+    outcome: 'Better navigation and cleaner intern record management.',
+    tags: ['Web App', 'Records', 'Map', 'Admin'],
     initials: 'HT',
   },
   {
     title: 'AgroConnect',
-    description: 'B2B agriculture marketplace concept connecting farmers, buyers, sellers, and transporters.',
-    problem: 'Helps local agriculture businesses connect and move products more efficiently.',
+    category: 'Marketplace concept',
+    description: 'B2B agriculture marketplace connecting farmers, buyers, sellers, and transport/logistics partners.',
+    outcome: 'A local-first agriculture flow for trade, logistics, and payments.',
     tags: ['Marketplace', 'Logistics', 'Payments', 'Web App'],
     initials: 'AC',
   },
   {
     title: 'Unlimited Edge Works',
-    description: 'Digital product platform with wallet-based purchases, product codes, inventory, and admin control.',
-    problem: 'Helps manage digital product sales with controlled delivery and payment records.',
-    tags: ['Wallet', 'Admin Dashboard', 'Digital Products', 'Payments'],
+    category: 'Digital product system',
+    description: 'Wallet-based product purchase flow with product codes, inventory, admin control, and payment records.',
+    outcome: 'Controlled delivery for digital products and tools.',
+    tags: ['Wallet', 'Inventory', 'Admin', 'Payments'],
     initials: 'UE',
   },
 ];
 
-const skillGroups = [
-  {
-    title: 'Frontend',
-    items: ['React', 'Next.js', 'Tailwind CSS', 'HTML', 'CSS', 'JavaScript', 'TypeScript', 'UI/UX Implementation'],
-  },
-  {
-    title: 'Backend & Database',
-    items: ['Node.js', 'Express', 'Supabase', 'MySQL', 'API Integration'],
-  },
-  {
-    title: 'Business Systems',
-    items: ['Admin Dashboards', 'Payment Flows', 'Restaurant Ordering', 'Student Portals', 'Booking Systems'],
-  },
-  {
-    title: 'Tools',
-    items: ['GitHub', 'Vercel', 'Railway', 'cPanel', 'Figma', 'WordPress', 'WooCommerce'],
-  },
+const stack = [
+  ['Frontend', 'React', 'Next.js', 'Tailwind CSS', 'TypeScript', 'UI Implementation'],
+  ['Backend', 'Node.js', 'Express', 'Supabase', 'MySQL', 'API Integration'],
+  ['Systems', 'Admin Dashboards', 'Payments', 'Student Portals', 'Restaurant Orders', 'Booking Flows'],
+  ['Tools', 'GitHub', 'Vercel', 'Railway', 'cPanel', 'Figma', 'WordPress'],
 ];
 
 const services = [
   {
-    title: 'Business Websites',
-    description: 'Clean, modern websites for restaurants, hotels, schools, shops, and local brands.',
+    title: 'Business websites',
+    copy: 'Modern websites for restaurants, hotels, schools, shops, and brands that need trust and conversion.',
   },
   {
-    title: 'Admin Dashboards',
-    description: 'Custom dashboards for managing users, payments, orders, records, and reports.',
+    title: 'Admin dashboards',
+    copy: 'Internal panels for users, payments, orders, records, reports, and staff workflows.',
   },
   {
-    title: 'Ordering & Booking Systems',
-    description: 'Restaurant ordering, hotel booking flows, WhatsApp-style orders, and kitchen/admin workflows.',
+    title: 'Ordering systems',
+    copy: 'Restaurant and service ordering flows with customer entry, kitchen/admin handling, and tracking.',
   },
   {
-    title: 'Payment Integration',
-    description: 'Paystack, MoMo-style flows, receipts, payment records, and admin tracking.',
+    title: 'Payment flows',
+    copy: 'Paystack-style checkout, receipts, records, manual approvals, and dashboard visibility.',
   },
 ];
 
-const fadeUp = {
-  initial: { opacity: 0, y: 28 },
-  whileInView: { opacity: 1, y: 0 },
-  viewport: { once: true, margin: '-90px' },
-  transition: { duration: 0.6, ease: 'easeOut' },
-};
+const metrics = [
+  ['6', 'Featured builds'],
+  ['4', 'Core service areas'],
+  ['100%', 'Business-first UI'],
+];
 
-function SectionHeader({ eyebrow, title, copy }: { eyebrow: string; title: string; copy: string }) {
+function SectionHeader({ label, title, copy }: { label: string; title: string; copy: string }) {
   return (
-    <motion.div {...fadeUp} className="mx-auto mb-12 max-w-3xl text-center">
-      <p className="mb-3 text-sm font-semibold uppercase tracking-[0.32em] text-slate-500">{eyebrow}</p>
-      <h2 className="text-3xl font-semibold tracking-tight text-slate-950 md:text-5xl">{title}</h2>
-      <p className="mt-5 text-base leading-8 text-slate-600 md:text-lg">{copy}</p>
-    </motion.div>
+    <div className="mx-auto mb-12 max-w-3xl text-center">
+      <div className="mx-auto mb-4 w-fit rounded-full border border-white/10 bg-white/[0.04] px-4 py-2 text-xs font-medium uppercase tracking-[0.26em] text-zinc-400">
+        {label}
+      </div>
+      <h2 className="text-balance text-3xl font-semibold tracking-[-0.04em] text-white md:text-5xl">{title}</h2>
+      <p className="mt-5 text-base leading-8 text-zinc-400 md:text-lg">{copy}</p>
+    </div>
   );
 }
 
 export default function Home() {
   return (
-    <main className="noise min-h-screen overflow-hidden">
+    <main className="site-grid min-h-screen overflow-hidden bg-black text-white">
+      <div className="pointer-events-none fixed inset-0 z-0 bg-[radial-gradient(circle_at_50%_0%,rgba(255,255,255,0.12),transparent_34rem)]" />
+
       <header className="fixed left-0 right-0 top-4 z-50 px-4">
-        <nav className="glass mx-auto flex max-w-6xl items-center justify-between rounded-full px-4 py-3 shadow-soft md:px-6">
+        <nav className="glass mx-auto flex max-w-6xl items-center justify-between rounded-full px-4 py-3 shadow-2xl shadow-black/30 md:px-6">
           <a href="#home" className="flex items-center gap-3">
-            <span className="grid h-10 w-10 place-items-center rounded-full bg-slate-950 text-sm font-bold text-white">GS</span>
-            <span className="hidden text-sm font-semibold text-slate-950 sm:inline">Godwin Sozo Kumah</span>
+            <span className="grid h-9 w-9 place-items-center rounded-full bg-white text-sm font-black text-black">G</span>
+            <span className="hidden text-sm font-semibold text-white sm:inline">s3yram</span>
           </a>
 
-          <div className="hidden items-center gap-6 md:flex">
+          <div className="hidden items-center gap-1 rounded-full border border-white/10 bg-white/[0.03] p-1 md:flex">
             {navItems.map((item) => (
-              <a key={item} href={`#${item.toLowerCase()}`} className="text-sm font-medium text-slate-600 transition hover:text-slate-950">
+              <a key={item} href={`#${item.toLowerCase()}`} className="rounded-full px-4 py-2 text-sm font-medium text-zinc-400 transition hover:bg-white/10 hover:text-white">
                 {item}
               </a>
             ))}
           </div>
 
-          <a href="#contact" className="rounded-full bg-slate-950 px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition hover:-translate-y-0.5 hover:bg-slate-800">
-            Contact
+          <a href="#contact" className="rounded-full bg-white px-5 py-2.5 text-sm font-semibold text-black transition hover:-translate-y-0.5 hover:bg-zinc-200">
+            Start a build
           </a>
         </nav>
       </header>
 
-      <section id="home" className="relative px-4 pb-24 pt-36 md:pb-32 md:pt-44">
-        <div className="absolute left-1/2 top-32 h-72 w-72 -translate-x-1/2 rounded-full bg-sky-200/30 blur-3xl" />
-        <div className="relative mx-auto grid max-w-6xl items-center gap-12 lg:grid-cols-[1.08fr_0.92fr]">
-          <motion.div initial={{ opacity: 0, y: 32 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }}>
-            <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white/70 px-4 py-2 text-sm font-medium text-slate-600 shadow-sm backdrop-blur">
-              <MapPin className="h-4 w-4" /> Ghana-based developer building real systems
+      <section id="home" className="relative z-10 px-4 pb-20 pt-36 md:pb-28 md:pt-44">
+        <div className="mx-auto grid max-w-6xl items-center gap-10 lg:grid-cols-[1.08fr_0.92fr]">
+          <div>
+            <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-4 py-2 text-sm text-zinc-300 shadow-2xl shadow-black/20 backdrop-blur">
+              <span className="h-2 w-2 rounded-full bg-emerald-400 shadow-[0_0_24px_rgba(52,211,153,0.8)]" />
+              Ghana-based developer building real business systems
             </div>
-            <h1 className="max-w-4xl text-5xl font-semibold tracking-[-0.055em] text-slate-950 md:text-7xl lg:text-8xl">
-              I build clean, functional digital products for real businesses.
+
+            <h1 className="text-balance max-w-5xl text-5xl font-semibold tracking-[-0.065em] text-white md:text-7xl lg:text-8xl">
+              Product-grade portfolio for practical software builds.
             </h1>
-            <p className="mt-7 max-w-2xl text-lg leading-8 text-slate-600 md:text-xl">
-              I’m Godwin Sozo Kumah, a front-end and full-stack developer focused on modern web apps, dashboards, business systems, restaurant ordering platforms, and payment-driven products.
+
+            <p className="mt-7 max-w-2xl text-lg leading-8 text-zinc-400 md:text-xl">
+              I’m Godwin Sozo Kumah, also known as s3yram. I build modern websites, dashboards, ordering systems, payment flows, and admin tools for real businesses.
             </p>
+
             <div className="mt-9 flex flex-col gap-3 sm:flex-row">
-              <a href="#projects" className="inline-flex items-center justify-center gap-2 rounded-full bg-slate-950 px-6 py-3 text-sm font-semibold text-white shadow-lift transition hover:-translate-y-1 hover:bg-slate-800">
-                View Projects <ArrowUpRight className="h-4 w-4" />
+              <a href="#projects" className="inline-flex items-center justify-center rounded-full bg-white px-6 py-3 text-sm font-semibold text-black transition hover:-translate-y-1 hover:bg-zinc-200">
+                Explore work <span className="ml-2">↗</span>
               </a>
-              <a href="#contact" className="inline-flex items-center justify-center rounded-full border border-slate-200 bg-white px-6 py-3 text-sm font-semibold text-slate-950 shadow-sm transition hover:-translate-y-1 hover:shadow-soft">
-                Contact Me
+              <a href="#contact" className="inline-flex items-center justify-center rounded-full border border-white/12 bg-white/[0.04] px-6 py-3 text-sm font-semibold text-white transition hover:-translate-y-1 hover:bg-white/10">
+                Contact me
               </a>
             </div>
+
             <div className="mt-8 flex flex-wrap gap-2">
-              {['React', 'Next.js', 'Supabase', 'Node.js', 'Tailwind CSS', 'Payments', 'Dashboards'].map((tag) => (
-                <span key={tag} className="rounded-full border border-slate-200 bg-white/70 px-4 py-2 text-sm text-slate-600">{tag}</span>
+              {['Next.js', 'React', 'Tailwind CSS', 'Supabase', 'Node.js', 'Dashboards', 'Payments'].map((tag) => (
+                <span key={tag} className="rounded-full border border-white/10 bg-white/[0.04] px-4 py-2 text-sm text-zinc-300">
+                  {tag}
+                </span>
               ))}
             </div>
-          </motion.div>
+          </div>
 
-          <motion.div initial={{ opacity: 0, scale: 0.96, y: 24 }} animate={{ opacity: 1, scale: 1, y: 0 }} transition={{ duration: 0.75, delay: 0.12 }} className="relative">
-            <div className="rounded-[2rem] border border-slate-200 bg-white/85 p-4 shadow-lift backdrop-blur">
-              <div className="rounded-[1.5rem] bg-slate-950 p-5 text-white">
-                <div className="mb-8 flex items-center justify-between">
-                  <div>
-                    <p className="text-sm text-slate-400">Portfolio Preview</p>
-                    <h3 className="mt-1 text-2xl font-semibold">s3yram.dev</h3>
-                  </div>
-                  <div className="rounded-full bg-white/10 px-3 py-1 text-xs text-slate-200">Live-ready</div>
+          <div className="card-glow relative rounded-[2rem] bg-white/[0.035] p-3 shadow-2xl shadow-black/40 backdrop-blur">
+            <div className="rounded-[1.55rem] border border-white/10 bg-[#09090b]/90 p-4">
+              <div className="mb-4 flex items-center justify-between rounded-2xl border border-white/10 bg-white/[0.04] px-4 py-3">
+                <div className="flex items-center gap-2 text-xs text-zinc-400">
+                  <span className="h-2.5 w-2.5 rounded-full bg-red-400" />
+                  <span className="h-2.5 w-2.5 rounded-full bg-yellow-300" />
+                  <span className="h-2.5 w-2.5 rounded-full bg-emerald-400" />
                 </div>
+                <span className="text-xs font-medium text-zinc-500">portfolio.interface</span>
+              </div>
 
-                <div className="grid gap-4">
-                  <div className="rounded-3xl bg-white p-5 text-slate-950">
-                    <p className="text-sm font-medium text-slate-500">Featured build</p>
-                    <h4 className="mt-2 text-2xl font-semibold">Restaurant order control</h4>
-                    <p className="mt-3 text-sm leading-6 text-slate-600">Web ordering, kitchen/admin dashboard, WhatsApp-style experience, and direct order management.</p>
-                  </div>
-                  <div className="grid grid-cols-2 gap-4">
-                    <div className="rounded-3xl bg-white/10 p-5">
-                      <p className="text-3xl font-semibold">6</p>
-                      <p className="mt-2 text-sm text-slate-300">Featured projects</p>
+              <div className="rounded-[1.35rem] bg-white p-5 text-black">
+                <p className="text-xs font-semibold uppercase tracking-[0.28em] text-zinc-500">Featured system</p>
+                <h2 className="mt-4 text-3xl font-semibold tracking-[-0.04em]">Chiq-N-Grill order control</h2>
+                <p className="mt-3 text-sm leading-6 text-zinc-600">
+                  A restaurant ordering flow designed around direct orders, staff visibility, kitchen handling, and admin control.
+                </p>
+                <div className="mt-5 grid grid-cols-3 gap-2">
+                  {['Menu', 'Orders', 'Kitchen'].map((item) => (
+                    <div key={item} className="rounded-2xl border border-zinc-200 bg-zinc-50 p-3 text-center text-xs font-semibold text-zinc-700">
+                      {item}
                     </div>
-                    <div className="rounded-3xl bg-white/10 p-5">
-                      <p className="text-3xl font-semibold">4</p>
-                      <p className="mt-2 text-sm text-slate-300">Service areas</p>
-                    </div>
-                  </div>
-                  <div className="rounded-3xl border border-white/10 bg-white/5 p-5">
-                    <p className="text-sm text-slate-300">Focus</p>
-                    <p className="mt-2 font-medium">Dashboards, payments, ordering systems, and business websites.</p>
-                  </div>
+                  ))}
                 </div>
               </div>
-            </div>
-          </motion.div>
-        </div>
-      </section>
 
-      <section id="about" className="px-4 py-20">
-        <div className="mx-auto max-w-6xl rounded-[2rem] border border-slate-200 bg-white/80 p-8 shadow-soft backdrop-blur md:p-12">
-          <div className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr]">
-            <motion.div {...fadeUp}>
-              <p className="text-sm font-semibold uppercase tracking-[0.32em] text-slate-500">About</p>
-              <h2 className="mt-4 text-3xl font-semibold tracking-tight text-slate-950 md:text-5xl">I turn business problems into structured digital systems.</h2>
-            </motion.div>
-            <motion.div {...fadeUp} className="space-y-6 text-lg leading-9 text-slate-600">
-              <p>I’m an HND ICT student and developer from Ghana with a strong interest in building real-world software for businesses, schools, restaurants, hotels, and organizations.</p>
-              <p>My work focuses on turning business problems into clean digital systems — from ordering platforms and dashboards to payment systems, admin panels, and mobile-friendly web apps.</p>
-              <p>I enjoy building products that are not only beautiful, but useful, structured, and ready for real users.</p>
-            </motion.div>
+              <div className="mt-4 grid grid-cols-3 gap-3">
+                {metrics.map(([value, label]) => (
+                  <div key={label} className="rounded-3xl border border-white/10 bg-white/[0.04] p-4">
+                    <p className="text-2xl font-semibold tracking-tight text-white">{value}</p>
+                    <p className="mt-1 text-xs leading-5 text-zinc-500">{label}</p>
+                  </div>
+                ))}
+              </div>
+
+              <div className="mt-4 rounded-3xl border border-white/10 bg-gradient-to-br from-white/[0.09] to-white/[0.03] p-5">
+                <div className="mb-3 flex items-center justify-between text-xs text-zinc-500">
+                  <span>system focus</span>
+                  <span>ready for Vercel</span>
+                </div>
+                <div className="h-2 overflow-hidden rounded-full bg-white/10">
+                  <div className="h-full w-[82%] rounded-full bg-white" />
+                </div>
+                <p className="mt-4 text-sm leading-6 text-zinc-300">Clean UI, admin logic, payments, records, and business workflows.</p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      <section id="projects" className="px-4 py-20">
+      <section id="work" className="relative z-10 px-4 py-20">
         <div className="mx-auto max-w-6xl">
-          <SectionHeader eyebrow="Featured Projects" title="Practical systems built around real business workflows." copy="These projects show how I think through user needs, admin control, payments, records, and clean interfaces." />
+          <div className="card-glow overflow-hidden rounded-[2rem] bg-white/[0.035] p-1 shadow-2xl shadow-black/30">
+            <div className="grid gap-px rounded-[1.8rem] bg-white/10 md:grid-cols-3">
+              {[
+                ['01', 'Business-first', 'Every section is written to sell trust, not just list skills.'],
+                ['02', 'System thinking', 'Projects are framed around workflows, users, admins, and outcomes.'],
+                ['03', 'Premium UI', 'Dark visual system, soft depth, glass navigation, and strong component cards.'],
+              ].map(([num, title, copy]) => (
+                <div key={title} className="bg-[#08080a] p-7 md:p-8">
+                  <p className="text-sm text-zinc-500">{num}</p>
+                  <h3 className="mt-8 text-2xl font-semibold tracking-tight text-white">{title}</h3>
+                  <p className="mt-3 text-sm leading-7 text-zinc-400">{copy}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
 
-          <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-            {projects.map((project, index) => (
-              <motion.article key={project.title} {...fadeUp} transition={{ duration: 0.55, delay: index * 0.04 }} className="group flex min-h-[420px] flex-col rounded-[2rem] border border-slate-200 bg-white/85 p-6 shadow-soft backdrop-blur transition duration-300 hover:-translate-y-2 hover:shadow-lift">
-                <div className="mb-6 flex items-center justify-between">
-                  <div className="grid h-12 w-12 place-items-center rounded-2xl bg-slate-950 text-sm font-bold text-white shadow-sm">{project.initials}</div>
-                  <ArrowUpRight className="h-5 w-5 text-slate-400 transition group-hover:translate-x-1 group-hover:-translate-y-1 group-hover:text-slate-950" />
+      <section id="projects" className="relative z-10 px-4 py-20">
+        <div className="mx-auto max-w-6xl">
+          <SectionHeader label="Projects" title="A curated wall of business systems and product experiments." copy="The layout now treats your work like a premium component collection: clear categories, strong outcomes, and clean tags." />
+
+          <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+            {projects.map((project) => (
+              <article key={project.title} className="card-glow group relative flex min-h-[430px] flex-col overflow-hidden rounded-[2rem] bg-white/[0.035] p-6 transition duration-300 hover:-translate-y-2 hover:bg-white/[0.06]">
+                <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/40 to-transparent" />
+                <div className="mb-7 flex items-center justify-between">
+                  <div className="grid h-12 w-12 place-items-center rounded-2xl border border-white/10 bg-white text-sm font-black text-black shadow-xl shadow-white/10">
+                    {project.initials}
+                  </div>
+                  <span className="text-zinc-500 transition group-hover:-translate-y-1 group-hover:translate-x-1 group-hover:text-white">↗</span>
                 </div>
-                <h3 className="text-xl font-semibold tracking-tight text-slate-950">{project.title}</h3>
-                <p className="mt-4 text-sm leading-7 text-slate-600">{project.description}</p>
-                <div className="mt-5 rounded-2xl bg-slate-50 p-4">
-                  <p className="text-xs font-semibold uppercase tracking-[0.2em] text-slate-400">Problem solved</p>
-                  <p className="mt-2 text-sm leading-6 text-slate-600">{project.problem}</p>
+
+                <p className="text-xs font-semibold uppercase tracking-[0.24em] text-zinc-500">{project.category}</p>
+                <h3 className="mt-4 text-2xl font-semibold tracking-[-0.03em] text-white">{project.title}</h3>
+                <p className="mt-4 text-sm leading-7 text-zinc-400">{project.description}</p>
+
+                <div className="mt-5 rounded-3xl border border-white/10 bg-black/30 p-4">
+                  <p className="text-xs font-semibold uppercase tracking-[0.2em] text-zinc-600">Outcome</p>
+                  <p className="mt-2 text-sm leading-6 text-zinc-300">{project.outcome}</p>
                 </div>
+
                 <div className="mt-5 flex flex-wrap gap-2">
                   {project.tags.map((tag) => (
-                    <span key={tag} className="rounded-full bg-slate-100 px-3 py-1.5 text-xs font-medium text-slate-600">{tag}</span>
+                    <span key={tag} className="rounded-full border border-white/10 bg-white/[0.04] px-3 py-1.5 text-xs font-medium text-zinc-400">
+                      {tag}
+                    </span>
                   ))}
                 </div>
-                <a href="#contact" className="mt-auto inline-flex items-center gap-2 pt-7 text-sm font-semibold text-slate-950">View Case Study <ArrowUpRight className="h-4 w-4" /></a>
-              </motion.article>
+
+                <a href="#contact" className="mt-auto inline-flex pt-8 text-sm font-semibold text-white">
+                  Request case study <span className="ml-2">↗</span>
+                </a>
+              </article>
             ))}
           </div>
         </div>
       </section>
 
-      <section id="skills" className="px-4 py-20">
+      <section id="stack" className="relative z-10 px-4 py-20">
         <div className="mx-auto max-w-6xl">
-          <SectionHeader eyebrow="Skills" title="Tools and workflows I use to build complete products." copy="My skill set is focused on front-end quality, database-backed apps, dashboards, and business-ready product flows." />
+          <SectionHeader label="Stack" title="The tools behind the builds." copy="A practical stack for shipping fast, clean, and deployable products on Vercel." />
 
-          <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
-            {skillGroups.map((group, index) => (
-              <motion.div key={group.title} {...fadeUp} transition={{ duration: 0.55, delay: index * 0.05 }} className="rounded-[2rem] border border-slate-200 bg-white/85 p-6 shadow-soft backdrop-blur">
-                <div className="mb-5 grid h-11 w-11 place-items-center rounded-2xl bg-slate-950 text-white"><Code2 className="h-5 w-5" /></div>
-                <h3 className="text-lg font-semibold text-slate-950">{group.title}</h3>
-                <div className="mt-5 flex flex-wrap gap-2">
-                  {group.items.map((item) => (
-                    <span key={item} className="rounded-full border border-slate-200 bg-white px-3 py-1.5 text-xs font-medium text-slate-600">{item}</span>
+          <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+            {stack.map(([title, ...items]) => (
+              <div key={title} className="card-glow rounded-[2rem] bg-white/[0.035] p-6">
+                <p className="text-sm font-semibold uppercase tracking-[0.22em] text-zinc-500">{title}</p>
+                <div className="mt-6 flex flex-wrap gap-2">
+                  {items.map((item) => (
+                    <span key={item} className="rounded-full border border-white/10 bg-black/25 px-3 py-2 text-xs font-medium text-zinc-300">
+                      {item}
+                    </span>
                   ))}
                 </div>
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>
       </section>
 
-      <section id="services" className="px-4 py-20">
+      <section id="services" className="relative z-10 px-4 py-20">
         <div className="mx-auto max-w-6xl">
-          <SectionHeader eyebrow="Services" title="What I can build for clients and teams." copy="I focus on practical builds that help businesses look better, work faster, collect payments, and manage operations." />
+          <SectionHeader label="Services" title="What I can build for clients and teams." copy="Focused services for real businesses that need practical software, not random pages." />
 
-          <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
+          <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
             {services.map((service, index) => (
-              <motion.div key={service.title} {...fadeUp} transition={{ duration: 0.55, delay: index * 0.05 }} className="group rounded-[2rem] border border-slate-200 bg-slate-950 p-6 text-white shadow-soft transition hover:-translate-y-2 hover:shadow-lift">
-                <div className="mb-8 grid h-12 w-12 place-items-center rounded-2xl bg-white text-slate-950"><Code2 className="h-5 w-5" /></div>
-                <h3 className="text-xl font-semibold">{service.title}</h3>
-                <p className="mt-4 text-sm leading-7 text-slate-300">{service.description}</p>
-              </motion.div>
+              <div key={service.title} className="card-glow rounded-[2rem] bg-white p-6 text-black transition hover:-translate-y-2">
+                <p className="text-sm font-semibold text-zinc-400">0{index + 1}</p>
+                <h3 className="mt-10 text-2xl font-semibold tracking-[-0.04em]">{service.title}</h3>
+                <p className="mt-4 text-sm leading-7 text-zinc-600">{service.copy}</p>
+              </div>
             ))}
           </div>
         </div>
       </section>
 
-      <section id="contact" className="px-4 py-20">
-        <motion.div {...fadeUp} className="mx-auto max-w-6xl overflow-hidden rounded-[2.25rem] bg-slate-950 p-8 text-white shadow-lift md:p-14">
-          <div className="grid gap-10 lg:grid-cols-[1.15fr_0.85fr] lg:items-end">
-            <div>
-              <p className="text-sm font-semibold uppercase tracking-[0.32em] text-slate-400">Contact</p>
-              <h2 className="mt-5 max-w-3xl text-4xl font-semibold tracking-tight md:text-6xl">Have a project, job opportunity, or business idea?</h2>
-              <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-300">Let’s build something clean, useful, and ready for real users.</p>
-            </div>
+      <section id="contact" className="relative z-10 px-4 py-20">
+        <div className="mx-auto max-w-6xl overflow-hidden rounded-[2.4rem] border border-white/10 bg-white p-2 text-black shadow-2xl shadow-black/40">
+          <div className="rounded-[2rem] bg-[radial-gradient(circle_at_top_right,rgba(0,0,0,0.14),transparent_26rem),#ffffff] p-8 md:p-14">
+            <div className="grid gap-10 lg:grid-cols-[1.15fr_0.85fr] lg:items-end">
+              <div>
+                <p className="text-sm font-semibold uppercase tracking-[0.28em] text-zinc-500">Contact</p>
+                <h2 className="text-balance mt-5 max-w-3xl text-4xl font-semibold tracking-[-0.055em] md:text-6xl">
+                  Have a project, job opportunity, or business idea?
+                </h2>
+                <p className="mt-6 max-w-2xl text-lg leading-8 text-zinc-600">
+                  Let’s build something clean, useful, and ready for real users.
+                </p>
+              </div>
 
-            <div className="grid gap-3 sm:grid-cols-3 lg:grid-cols-1">
-              <a href="mailto:kumahgodwin32@gmail.com" className="inline-flex items-center justify-between rounded-full bg-white px-5 py-3 text-sm font-semibold text-slate-950 transition hover:-translate-y-1">Email Me <Mail className="h-4 w-4" /></a>
-              <a href="https://wa.me/233000000000" className="inline-flex items-center justify-between rounded-full border border-white/15 px-5 py-3 text-sm font-semibold text-white transition hover:-translate-y-1 hover:bg-white/10">WhatsApp <MessageCircle className="h-4 w-4" /></a>
-              <a href="https://github.com/hAck404-lab101" className="inline-flex items-center justify-between rounded-full border border-white/15 px-5 py-3 text-sm font-semibold text-white transition hover:-translate-y-1 hover:bg-white/10">GitHub <Code2 className="h-4 w-4" /></a>
+              <div className="grid gap-3">
+                <a href="mailto:kumahgodwin32@gmail.com" className="flex items-center justify-between rounded-full bg-black px-5 py-3 text-sm font-semibold text-white transition hover:-translate-y-1">
+                  Email Me <span>↗</span>
+                </a>
+                <a href="https://wa.me/233000000000" className="flex items-center justify-between rounded-full border border-zinc-200 bg-white px-5 py-3 text-sm font-semibold text-black transition hover:-translate-y-1 hover:bg-zinc-100">
+                  WhatsApp <span>↗</span>
+                </a>
+                <a href="https://github.com/hAck404-lab101" className="flex items-center justify-between rounded-full border border-zinc-200 bg-white px-5 py-3 text-sm font-semibold text-black transition hover:-translate-y-1 hover:bg-zinc-100">
+                  GitHub <span>↗</span>
+                </a>
+              </div>
             </div>
           </div>
-        </motion.div>
+        </div>
       </section>
 
-      <footer className="px-4 pb-10">
-        <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 border-t border-slate-200 pt-8 text-sm text-slate-500 md:flex-row">
+      <footer className="relative z-10 px-4 pb-10">
+        <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 border-t border-white/10 pt-8 text-sm text-zinc-500 md:flex-row">
           <p>Godwin Sozo Kumah / s3yram</p>
           <p>Front-End & Full-Stack Developer</p>
         </div>

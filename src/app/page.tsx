@@ -1,4 +1,30 @@
-const navItems = ['Work', 'Projects', 'Stack', 'Services', 'Contact'];
+const navItems = ['Templates', 'Projects', 'Stack', 'Services', 'Contact'];
+
+const templateCategories = [
+  {
+    name: 'Personal Website',
+    use: 'Identity, introduction, status, and personal positioning for s3yram.',
+  },
+  {
+    name: 'Portfolio',
+    use: 'Project wall, outcomes, tags, and case-study style presentation.',
+  },
+  {
+    name: 'Landing Page',
+    use: 'Hero, proof, CTA, services, and conversion-focused sections.',
+  },
+  {
+    name: 'Developer Tool',
+    use: 'Technical stack, workflow cards, GitHub/Vercel framing, and build confidence.',
+  },
+];
+
+const componentBlocks = [
+  ['Hero', 'A bold opening with identity, proof, and immediate call-to-action.'],
+  ['Cards', 'A polished project gallery with category labels, outcomes, and tags.'],
+  ['Features', 'A services/skills section that explains what each build does for clients.'],
+  ['Footer', 'A clean final CTA with email, WhatsApp, GitHub, and brand line.'],
+];
 
 const projects = [
   {
@@ -8,6 +34,7 @@ const projects = [
     outcome: 'Direct orders without forcing website customers through WhatsApp.',
     tags: ['Next.js', 'Supabase', 'Orders', 'Dashboard'],
     initials: 'CG',
+    size: 'lg:col-span-2',
   },
   {
     title: 'Dues Management System',
@@ -16,6 +43,7 @@ const projects = [
     outcome: 'A cleaner way for departments to manage dues and payment records.',
     tags: ['React', 'Node.js', 'MySQL', 'Paystack'],
     initials: 'DM',
+    size: '',
   },
   {
     title: 'Royal Hawk Hotel Website',
@@ -24,6 +52,7 @@ const projects = [
     outcome: 'A more professional digital front desk for hotel customers.',
     tags: ['Website', 'SEO', 'Booking', 'Business'],
     initials: 'RH',
+    size: '',
   },
   {
     title: 'HTH Hospital Map / Intern System',
@@ -32,6 +61,7 @@ const projects = [
     outcome: 'Better navigation and cleaner intern record management.',
     tags: ['Web App', 'Records', 'Map', 'Admin'],
     initials: 'HT',
+    size: '',
   },
   {
     title: 'AgroConnect',
@@ -40,6 +70,7 @@ const projects = [
     outcome: 'A local-first agriculture flow for trade, logistics, and payments.',
     tags: ['Marketplace', 'Logistics', 'Payments', 'Web App'],
     initials: 'AC',
+    size: '',
   },
   {
     title: 'Unlimited Edge Works',
@@ -48,6 +79,7 @@ const projects = [
     outcome: 'Controlled delivery for digital products and tools.',
     tags: ['Wallet', 'Inventory', 'Admin', 'Payments'],
     initials: 'UE',
+    size: 'lg:col-span-2',
   },
 ];
 
@@ -78,9 +110,9 @@ const services = [
 ];
 
 const metrics = [
-  ['6', 'Featured builds'],
-  ['4', 'Core service areas'],
-  ['100%', 'Business-first UI'],
+  ['4', '21st template categories used'],
+  ['6', 'Featured projects'],
+  ['0', 'Icon export risk'],
 ];
 
 function SectionHeader({ label, title, copy }: { label: string; title: string; copy: string }) {
@@ -126,23 +158,23 @@ export default function Home() {
           <div>
             <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-4 py-2 text-sm text-zinc-300 shadow-2xl shadow-black/20 backdrop-blur">
               <span className="h-2 w-2 rounded-full bg-emerald-400 shadow-[0_0_24px_rgba(52,211,153,0.8)]" />
-              Ghana-based developer building real business systems
+              Portfolio + Personal Website template direction
             </div>
 
             <h1 className="text-balance max-w-5xl text-5xl font-semibold tracking-[-0.065em] text-white md:text-7xl lg:text-8xl">
-              Product-grade portfolio for practical software builds.
+              I build business systems with product-grade interfaces.
             </h1>
 
             <p className="mt-7 max-w-2xl text-lg leading-8 text-zinc-400 md:text-xl">
-              I’m Godwin Sozo Kumah, also known as s3yram. I build modern websites, dashboards, ordering systems, payment flows, and admin tools for real businesses.
+              I’m Godwin Sozo Kumah, also known as s3yram. This portfolio is structured from 21st-style template categories: Personal Website, Portfolio, Landing Page, and Developer Tool.
             </p>
 
             <div className="mt-9 flex flex-col gap-3 sm:flex-row">
               <a href="#projects" className="inline-flex items-center justify-center rounded-full bg-white px-6 py-3 text-sm font-semibold text-black transition hover:-translate-y-1 hover:bg-zinc-200">
-                Explore work <span className="ml-2">↗</span>
+                View portfolio wall <span className="ml-2">↗</span>
               </a>
-              <a href="#contact" className="inline-flex items-center justify-center rounded-full border border-white/12 bg-white/[0.04] px-6 py-3 text-sm font-semibold text-white transition hover:-translate-y-1 hover:bg-white/10">
-                Contact me
+              <a href="#templates" className="inline-flex items-center justify-center rounded-full border border-white/[0.12] bg-white/[0.04] px-6 py-3 text-sm font-semibold text-white transition hover:-translate-y-1 hover:bg-white/10">
+                See template system
               </a>
             </div>
 
@@ -163,19 +195,19 @@ export default function Home() {
                   <span className="h-2.5 w-2.5 rounded-full bg-yellow-300" />
                   <span className="h-2.5 w-2.5 rounded-full bg-emerald-400" />
                 </div>
-                <span className="text-xs font-medium text-zinc-500">portfolio.interface</span>
+                <span className="text-xs font-medium text-zinc-500">template.preview</span>
               </div>
 
               <div className="rounded-[1.35rem] bg-white p-5 text-black">
-                <p className="text-xs font-semibold uppercase tracking-[0.28em] text-zinc-500">Featured system</p>
-                <h2 className="mt-4 text-3xl font-semibold tracking-[-0.04em]">Chiq-N-Grill order control</h2>
+                <p className="text-xs font-semibold uppercase tracking-[0.28em] text-zinc-500">Selected template mix</p>
+                <h2 className="mt-4 text-3xl font-semibold tracking-[-0.04em]">Portfolio for a systems builder</h2>
                 <p className="mt-3 text-sm leading-6 text-zinc-600">
-                  A restaurant ordering flow designed around direct orders, staff visibility, kitchen handling, and admin control.
+                  A personal website layout, portfolio project wall, landing-page CTA, and developer-tool credibility block in one page.
                 </p>
-                <div className="mt-5 grid grid-cols-3 gap-2">
-                  {['Menu', 'Orders', 'Kitchen'].map((item) => (
-                    <div key={item} className="rounded-2xl border border-zinc-200 bg-zinc-50 p-3 text-center text-xs font-semibold text-zinc-700">
-                      {item}
+                <div className="mt-5 grid grid-cols-2 gap-2">
+                  {templateCategories.map((item) => (
+                    <div key={item.name} className="rounded-2xl border border-zinc-200 bg-zinc-50 p-3 text-xs font-semibold text-zinc-700">
+                      {item.name}
                     </div>
                   ))}
                 </div>
@@ -192,46 +224,51 @@ export default function Home() {
 
               <div className="mt-4 rounded-3xl border border-white/10 bg-gradient-to-br from-white/[0.09] to-white/[0.03] p-5">
                 <div className="mb-3 flex items-center justify-between text-xs text-zinc-500">
-                  <span>system focus</span>
+                  <span>template coverage</span>
                   <span>ready for Vercel</span>
                 </div>
                 <div className="h-2 overflow-hidden rounded-full bg-white/10">
-                  <div className="h-full w-[82%] rounded-full bg-white" />
+                  <div className="h-full w-[88%] rounded-full bg-white" />
                 </div>
-                <p className="mt-4 text-sm leading-6 text-zinc-300">Clean UI, admin logic, payments, records, and business workflows.</p>
+                <p className="mt-4 text-sm leading-6 text-zinc-300">Hero, cards, features, stack, project wall, services, and footer CTA.</p>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      <section id="work" className="relative z-10 px-4 py-20">
+      <section id="templates" className="relative z-10 px-4 py-20">
         <div className="mx-auto max-w-6xl">
-          <div className="card-glow overflow-hidden rounded-[2rem] bg-white/[0.035] p-1 shadow-2xl shadow-black/30">
-            <div className="grid gap-px rounded-[1.8rem] bg-white/10 md:grid-cols-3">
-              {[
-                ['01', 'Business-first', 'Every section is written to sell trust, not just list skills.'],
-                ['02', 'System thinking', 'Projects are framed around workflows, users, admins, and outcomes.'],
-                ['03', 'Premium UI', 'Dark visual system, soft depth, glass navigation, and strong component cards.'],
-              ].map(([num, title, copy]) => (
-                <div key={title} className="bg-[#08080a] p-7 md:p-8">
-                  <p className="text-sm text-zinc-500">{num}</p>
-                  <h3 className="mt-8 text-2xl font-semibold tracking-tight text-white">{title}</h3>
-                  <p className="mt-3 text-sm leading-7 text-zinc-400">{copy}</p>
-                </div>
-              ))}
-            </div>
+          <SectionHeader label="Template system" title="Built from 21st.dev’s public template categories." copy="Without MCP, we cannot import the private one-click components directly, so this page manually follows the same category structure and component pattern." />
+
+          <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+            {templateCategories.map((item, index) => (
+              <div key={item.name} className="card-glow rounded-[2rem] bg-white/[0.035] p-6 transition hover:-translate-y-2 hover:bg-white/[0.06]">
+                <p className="text-sm font-semibold text-zinc-500">0{index + 1}</p>
+                <h3 className="mt-10 text-2xl font-semibold tracking-[-0.04em] text-white">{item.name}</h3>
+                <p className="mt-4 text-sm leading-7 text-zinc-400">{item.use}</p>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-4 grid gap-4 md:grid-cols-4">
+            {componentBlocks.map(([name, copy]) => (
+              <div key={name} className="rounded-[1.5rem] border border-white/10 bg-black/30 p-5">
+                <p className="text-sm font-semibold text-white">{name}</p>
+                <p className="mt-2 text-xs leading-6 text-zinc-500">{copy}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
       <section id="projects" className="relative z-10 px-4 py-20">
         <div className="mx-auto max-w-6xl">
-          <SectionHeader label="Projects" title="A curated wall of business systems and product experiments." copy="The layout now treats your work like a premium component collection: clear categories, strong outcomes, and clean tags." />
+          <SectionHeader label="Portfolio" title="A project wall shaped like a premium template gallery." copy="Your work is framed by project type, system outcome, and tech tags, so clients and recruiters understand the value quickly." />
 
           <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
             {projects.map((project) => (
-              <article key={project.title} className="card-glow group relative flex min-h-[430px] flex-col overflow-hidden rounded-[2rem] bg-white/[0.035] p-6 transition duration-300 hover:-translate-y-2 hover:bg-white/[0.06]">
+              <article key={project.title} className={`card-glow group relative flex min-h-[430px] flex-col overflow-hidden rounded-[2rem] bg-white/[0.035] p-6 transition duration-300 hover:-translate-y-2 hover:bg-white/[0.06] ${project.size}`}>
                 <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/40 to-transparent" />
                 <div className="mb-7 flex items-center justify-between">
                   <div className="grid h-12 w-12 place-items-center rounded-2xl border border-white/10 bg-white text-sm font-black text-black shadow-xl shadow-white/10">
@@ -268,7 +305,7 @@ export default function Home() {
 
       <section id="stack" className="relative z-10 px-4 py-20">
         <div className="mx-auto max-w-6xl">
-          <SectionHeader label="Stack" title="The tools behind the builds." copy="A practical stack for shipping fast, clean, and deployable products on Vercel." />
+          <SectionHeader label="Developer Tool" title="The build stack behind the interface." copy="This section borrows from developer-tool template logic: show the stack, workflows, and deployment confidence clearly." />
 
           <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
             {stack.map(([title, ...items]) => (
@@ -289,7 +326,7 @@ export default function Home() {
 
       <section id="services" className="relative z-10 px-4 py-20">
         <div className="mx-auto max-w-6xl">
-          <SectionHeader label="Services" title="What I can build for clients and teams." copy="Focused services for real businesses that need practical software, not random pages." />
+          <SectionHeader label="Landing Page" title="Services written to convert visitors into conversations." copy="This section uses landing-page structure: clear offers, short copy, and a direct path to contact." />
 
           <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
             {services.map((service, index) => (
@@ -336,7 +373,7 @@ export default function Home() {
       <footer className="relative z-10 px-4 pb-10">
         <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 border-t border-white/10 pt-8 text-sm text-zinc-500 md:flex-row">
           <p>Godwin Sozo Kumah / s3yram</p>
-          <p>Front-End & Full-Stack Developer</p>
+          <p>Personal Website + Portfolio + Landing Page + Developer Tool</p>
         </div>
       </footer>
     </main>

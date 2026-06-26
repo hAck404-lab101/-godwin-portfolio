@@ -13,9 +13,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: 'Godwin Sozo Kumah | s3yram',
+  title: 'Godwin Sozo Kumah | DiMiles',
   description:
-    'Front-end and full-stack developer building dashboards, business systems, restaurant ordering platforms, and payment-driven products.',
+    'Personal portfolio for Godwin Sozo Kumah, front-end and full-stack developer building business systems under the DiMiles brand.',
 };
 
 export default function RootLayout({

@@ -80,9 +80,9 @@ const stats = [
 function SectionHeader({ label, title, copy }: { label: string; title: string; copy: string }) {
   return (
     <div className="mb-12 max-w-3xl">
-      <p className="mb-4 text-sm font-semibold uppercase tracking-[0.25em] text-zinc-500">{label}</p>
-      <h2 className="text-balance text-3xl font-semibold tracking-[-0.045em] text-white md:text-5xl">{title}</h2>
-      <p className="mt-5 text-base leading-8 text-zinc-400 md:text-lg">{copy}</p>
+      <p className="mb-4 text-sm font-semibold uppercase tracking-[0.25em] text-[#d8b76a]/75">{label}</p>
+      <h2 className="text-balance font-display text-3xl font-semibold tracking-[-0.045em] text-[#f7f2e8] md:text-5xl">{title}</h2>
+      <p className="mt-5 text-base leading-8 text-[#f3e7c8]/55 md:text-lg">{copy}</p>
     </div>
   );
 }
@@ -92,31 +92,31 @@ export default function Home() {
   const otherProjects = projects.filter((project) => !project.featured);
 
   return (
-    <main className="site-grid min-h-screen overflow-hidden bg-black text-white">
-      <div className="pointer-events-none fixed inset-0 z-0 bg-[radial-gradient(circle_at_50%_0%,rgba(255,255,255,0.12),transparent_34rem)]" />
+    <main className="site-grid min-h-screen overflow-hidden bg-premium-obsidian text-[#f7f2e8]">
+      <div className="pointer-events-none fixed inset-0 z-0 bg-[radial-gradient(circle_at_50%_0%,rgba(216,183,106,0.12),transparent_34rem)]" />
       <PortfolioHeader />
 
       <section id="home" className="relative z-10 px-4 pb-16 pt-36 md:pb-24 md:pt-44">
         <div className="mx-auto max-w-6xl">
           <div className="max-w-6xl">
-            <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-4 py-2 text-sm text-zinc-300 shadow-2xl shadow-black/20 backdrop-blur">
-              <span className="h-2 w-2 rounded-full bg-[#c3e41d] shadow-[0_0_24px_rgba(195,228,29,0.8)]" />
+            <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-[#f3e7c8]/15 bg-[#f3e7c8]/[0.045] px-4 py-2 text-sm text-[#f3e7c8]/75 shadow-2xl shadow-black/20 backdrop-blur">
+              <span className="h-2 w-2 rounded-full bg-[#d8b76a] shadow-[0_0_24px_rgba(216,183,106,0.8)]" />
               Personal portfolio by Godwin · Domain brand by DiMiles
             </div>
 
-            <h1 className="text-balance text-[4.2rem] font-black uppercase leading-[0.8] tracking-[-0.09em] text-[#c3e41d] sm:text-[6rem] md:text-[8rem] lg:text-[10rem]">
+            <h1 className="gold-gradient-text text-balance font-display text-[4.2rem] font-black uppercase leading-[0.8] tracking-[-0.09em] sm:text-[6rem] md:text-[8rem] lg:text-[10rem]">
               Godwin Sozo Kumah
             </h1>
 
-            <p className="mt-8 max-w-3xl text-lg leading-8 text-zinc-400 md:text-xl">
+            <p className="mt-8 max-w-3xl text-lg leading-8 text-[#f3e7c8]/60 md:text-xl">
               Front-end and full-stack developer building business websites, dashboards, ordering systems, payment flows, and admin tools under the DiMiles company brand.
             </p>
 
             <div className="mt-9 flex flex-col gap-3 sm:flex-row">
-              <a href="#projects" className="inline-flex items-center justify-center rounded-full bg-white px-6 py-3 text-sm font-semibold text-black transition hover:-translate-y-1 hover:bg-zinc-200">
+              <a href="#projects" className="inline-flex items-center justify-center rounded-full bg-[#f3e7c8] px-6 py-3 text-sm font-semibold text-[#05040a] shadow-2xl shadow-[#d8b76a]/10 transition hover:-translate-y-1 hover:bg-[#fff7df]">
                 View selected work <span className="ml-2">↗</span>
               </a>
-              <a href="#contact" className="inline-flex items-center justify-center rounded-full border border-white/[0.12] bg-white/[0.04] px-6 py-3 text-sm font-semibold text-white transition hover:-translate-y-1 hover:bg-white/10">
+              <a href="#contact" className="inline-flex items-center justify-center rounded-full border border-[#f3e7c8]/15 bg-[#f3e7c8]/[0.045] px-6 py-3 text-sm font-semibold text-[#f7f2e8] transition hover:-translate-y-1 hover:border-[#d8b76a]/40 hover:bg-[#d8b76a]/10">
                 Work with DiMiles
               </a>
             </div>
@@ -124,9 +124,9 @@ export default function Home() {
 
           <div className="mt-16 grid gap-4 md:grid-cols-3">
             {stats.map(([value, label]) => (
-              <div key={label} className="card-glow rounded-[2rem] bg-white/[0.035] p-6">
-                <p className="text-4xl font-semibold tracking-[-0.05em] text-white">{value}</p>
-                <p className="mt-2 text-sm text-zinc-500">{label}</p>
+              <div key={label} className="card-glow rounded-[2rem] bg-[#f3e7c8]/[0.045] p-6">
+                <p className="font-display text-4xl font-semibold tracking-[-0.05em] text-[#f7f2e8]">{value}</p>
+                <p className="mt-2 text-sm text-[#f3e7c8]/45">{label}</p>
               </div>
             ))}
           </div>
@@ -136,20 +136,20 @@ export default function Home() {
       <section id="work" className="relative z-10 px-4 py-20">
         <div className="mx-auto max-w-6xl">
           <div className="grid gap-4 lg:grid-cols-[0.85fr_1.15fr]">
-            <div className="card-glow rounded-[2rem] bg-white p-8 text-black">
-              <p className="text-sm font-semibold uppercase tracking-[0.25em] text-zinc-500">What I do</p>
-              <h2 className="mt-8 text-4xl font-semibold tracking-[-0.06em] md:text-5xl">Software that supports business operations.</h2>
-              <p className="mt-6 text-base leading-8 text-zinc-600">
+            <div className="card-glow rounded-[2rem] bg-[#f3e7c8] p-8 text-[#05040a]">
+              <p className="text-sm font-semibold uppercase tracking-[0.25em] text-[#8f7540]">What I do</p>
+              <h2 className="mt-8 font-display text-4xl font-semibold tracking-[-0.06em] md:text-5xl">Software that supports business operations.</h2>
+              <p className="mt-6 text-base leading-8 text-[#201a12]/75">
                 My focus is not only beautiful UI. I care about the flow behind the interface: who uses it, what they manage, how payments move, and how admins control the system.
               </p>
             </div>
 
             <div className="grid gap-4 md:grid-cols-2">
               {['Business websites', 'Admin dashboards', 'Ordering flows', 'Payment records'].map((item, index) => (
-                <div key={item} className="card-glow rounded-[2rem] bg-white/[0.035] p-6">
-                  <p className="text-sm text-zinc-600">0{index + 1}</p>
-                  <h3 className="mt-12 text-2xl font-semibold tracking-[-0.04em] text-white">{item}</h3>
-                  <p className="mt-3 text-sm leading-7 text-zinc-500">Built with structure, clean UI, and real workflow thinking.</p>
+                <div key={item} className="card-glow rounded-[2rem] bg-[#f3e7c8]/[0.045] p-6">
+                  <p className="text-sm text-[#d8b76a]/45">0{index + 1}</p>
+                  <h3 className="mt-12 font-display text-2xl font-semibold tracking-[-0.04em] text-[#f7f2e8]">{item}</h3>
+                  <p className="mt-3 text-sm leading-7 text-[#f3e7c8]/45">Built with structure, clean UI, and real workflow thinking.</p>
                 </div>
               ))}
             </div>
@@ -163,20 +163,20 @@ export default function Home() {
 
           <div className="grid gap-4 lg:grid-cols-2">
             {featuredProjects.map((project) => (
-              <article key={project.title} className="card-glow group relative min-h-[520px] overflow-hidden rounded-[2.4rem] bg-white/[0.035] p-7 transition duration-300 hover:-translate-y-2 hover:bg-white/[0.06] md:p-8">
-                <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/50 to-transparent" />
+              <article key={project.title} className="card-glow group relative min-h-[520px] overflow-hidden rounded-[2.4rem] bg-[#f3e7c8]/[0.045] p-7 transition duration-300 hover:-translate-y-2 hover:bg-[#f3e7c8]/[0.07] md:p-8">
+                <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#d8b76a]/50 to-transparent" />
                 <div className="flex items-center justify-between">
-                  <div className="grid h-14 w-14 place-items-center rounded-2xl bg-white text-sm font-black text-black">{project.initials}</div>
-                  <span className="text-zinc-500 transition group-hover:-translate-y-1 group-hover:translate-x-1 group-hover:text-white">↗</span>
+                  <div className="grid h-14 w-14 place-items-center rounded-2xl bg-[#f3e7c8] text-sm font-black text-[#05040a]">{project.initials}</div>
+                  <span className="text-[#d8b76a]/45 transition group-hover:-translate-y-1 group-hover:translate-x-1 group-hover:text-[#d8b76a]">↗</span>
                 </div>
 
-                <p className="mt-10 text-xs font-semibold uppercase tracking-[0.25em] text-zinc-500">{project.label}</p>
-                <h3 className="mt-4 text-4xl font-semibold tracking-[-0.055em] text-white">{project.title}</h3>
-                <p className="mt-5 max-w-xl text-base leading-8 text-zinc-400">{project.description}</p>
+                <p className="mt-10 text-xs font-semibold uppercase tracking-[0.25em] text-[#d8b76a]/65">{project.label}</p>
+                <h3 className="mt-4 font-display text-4xl font-semibold tracking-[-0.055em] text-[#f7f2e8]">{project.title}</h3>
+                <p className="mt-5 max-w-xl text-base leading-8 text-[#f3e7c8]/55">{project.description}</p>
 
                 <div className="mt-8 grid gap-3 sm:grid-cols-2">
                   {project.details.map((detail) => (
-                    <div key={detail} className="rounded-2xl border border-white/10 bg-black/25 p-4 text-sm font-medium text-zinc-300">
+                    <div key={detail} className="rounded-2xl border border-[#f3e7c8]/12 bg-[#05040a]/35 p-4 text-sm font-medium text-[#f3e7c8]/70">
                       {detail}
                     </div>
                   ))}
@@ -184,7 +184,7 @@ export default function Home() {
 
                 <div className="mt-8 flex flex-wrap gap-2">
                   {project.tags.map((tag) => (
-                    <span key={tag} className="rounded-full border border-white/10 bg-white/[0.04] px-3 py-1.5 text-xs font-medium text-zinc-400">
+                    <span key={tag} className="rounded-full border border-[#f3e7c8]/12 bg-[#05040a]/35 px-3 py-1.5 text-xs font-medium text-[#f3e7c8]/55">
                       {tag}
                     </span>
                   ))}
@@ -195,11 +195,11 @@ export default function Home() {
 
           <div className="mt-4 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
             {otherProjects.map((project) => (
-              <article key={project.title} className="card-glow rounded-[2rem] bg-white/[0.035] p-6 transition hover:-translate-y-2 hover:bg-white/[0.06]">
-                <div className="grid h-11 w-11 place-items-center rounded-2xl bg-white text-xs font-black text-black">{project.initials}</div>
-                <p className="mt-8 text-xs font-semibold uppercase tracking-[0.22em] text-zinc-500">{project.label}</p>
-                <h3 className="mt-3 text-xl font-semibold tracking-[-0.035em] text-white">{project.title}</h3>
-                <p className="mt-4 text-sm leading-7 text-zinc-500">{project.description}</p>
+              <article key={project.title} className="card-glow rounded-[2rem] bg-[#f3e7c8]/[0.045] p-6 transition hover:-translate-y-2 hover:bg-[#f3e7c8]/[0.07]">
+                <div className="grid h-11 w-11 place-items-center rounded-2xl bg-[#f3e7c8] text-xs font-black text-[#05040a]">{project.initials}</div>
+                <p className="mt-8 text-xs font-semibold uppercase tracking-[0.22em] text-[#d8b76a]/60">{project.label}</p>
+                <h3 className="mt-3 font-display text-xl font-semibold tracking-[-0.035em] text-[#f7f2e8]">{project.title}</h3>
+                <p className="mt-4 text-sm leading-7 text-[#f3e7c8]/45">{project.description}</p>
               </article>
             ))}
           </div>
@@ -212,10 +212,10 @@ export default function Home() {
 
           <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
             {services.map(([title, copy], index) => (
-              <div key={title} className="card-glow rounded-[2rem] bg-white p-6 text-black transition hover:-translate-y-2">
-                <p className="text-sm font-semibold text-zinc-400">0{index + 1}</p>
-                <h3 className="mt-10 text-2xl font-semibold tracking-[-0.04em]">{title}</h3>
-                <p className="mt-4 text-sm leading-7 text-zinc-600">{copy}</p>
+              <div key={title} className="card-glow rounded-[2rem] bg-[#f3e7c8] p-6 text-[#05040a] transition hover:-translate-y-2">
+                <p className="text-sm font-semibold text-[#8f7540]">0{index + 1}</p>
+                <h3 className="mt-10 font-display text-2xl font-semibold tracking-[-0.04em]">{title}</h3>
+                <p className="mt-4 text-sm leading-7 text-[#201a12]/70">{copy}</p>
               </div>
             ))}
           </div>
@@ -228,11 +228,11 @@ export default function Home() {
 
           <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
             {stack.map(([title, ...items]) => (
-              <div key={title} className="card-glow rounded-[2rem] bg-white/[0.035] p-6">
-                <p className="text-sm font-semibold uppercase tracking-[0.22em] text-zinc-500">{title}</p>
+              <div key={title} className="card-glow rounded-[2rem] bg-[#f3e7c8]/[0.045] p-6">
+                <p className="text-sm font-semibold uppercase tracking-[0.22em] text-[#d8b76a]/65">{title}</p>
                 <div className="mt-6 flex flex-wrap gap-2">
                   {items.map((item) => (
-                    <span key={item} className="rounded-full border border-white/10 bg-black/25 px-3 py-2 text-xs font-medium text-zinc-300">
+                    <span key={item} className="rounded-full border border-[#f3e7c8]/12 bg-[#05040a]/35 px-3 py-2 text-xs font-medium text-[#f3e7c8]/60">
                       {item}
                     </span>
                   ))}
@@ -244,27 +244,27 @@ export default function Home() {
       </section>
 
       <section id="contact" className="relative z-10 px-4 py-20">
-        <div className="mx-auto max-w-6xl overflow-hidden rounded-[2.4rem] border border-white/10 bg-white p-2 text-black shadow-2xl shadow-black/40">
-          <div className="rounded-[2rem] bg-[radial-gradient(circle_at_top_right,rgba(0,0,0,0.14),transparent_26rem),#ffffff] p-8 md:p-14">
+        <div className="mx-auto max-w-6xl overflow-hidden rounded-[2.4rem] border border-[#f3e7c8]/15 bg-[#f3e7c8] p-2 text-[#05040a] shadow-2xl shadow-black/40">
+          <div className="rounded-[2rem] bg-[radial-gradient(circle_at_top_right,rgba(216,183,106,0.28),transparent_26rem),#f3e7c8] p-8 md:p-14">
             <div className="grid gap-10 lg:grid-cols-[1.15fr_0.85fr] lg:items-end">
               <div>
-                <p className="text-sm font-semibold uppercase tracking-[0.28em] text-zinc-500">Contact</p>
-                <h2 className="text-balance mt-5 max-w-3xl text-4xl font-semibold tracking-[-0.055em] md:text-6xl">
+                <p className="text-sm font-semibold uppercase tracking-[0.28em] text-[#8f7540]">Contact</p>
+                <h2 className="text-balance mt-5 max-w-3xl font-display text-4xl font-semibold tracking-[-0.055em] md:text-6xl">
                   Have a project, job opportunity, or business idea?
                 </h2>
-                <p className="mt-6 max-w-2xl text-lg leading-8 text-zinc-600">
+                <p className="mt-6 max-w-2xl text-lg leading-8 text-[#201a12]/70">
                   Let’s build something clean, useful, and ready for real users with Godwin / DiMiles.
                 </p>
               </div>
 
               <div className="grid gap-3">
-                <a href="mailto:kumahgodwin32@gmail.com" className="flex items-center justify-between rounded-full bg-black px-5 py-3 text-sm font-semibold text-white transition hover:-translate-y-1">
+                <a href="mailto:kumahgodwin32@gmail.com" className="flex items-center justify-between rounded-full bg-[#05040a] px-5 py-3 text-sm font-semibold text-[#f3e7c8] transition hover:-translate-y-1">
                   Email Me <span>↗</span>
                 </a>
-                <a href="https://wa.me/233000000000" className="flex items-center justify-between rounded-full border border-zinc-200 bg-white px-5 py-3 text-sm font-semibold text-black transition hover:-translate-y-1 hover:bg-zinc-100">
+                <a href="https://wa.me/233000000000" className="flex items-center justify-between rounded-full border border-[#8f7540]/30 bg-[#f7f2e8] px-5 py-3 text-sm font-semibold text-[#05040a] transition hover:-translate-y-1 hover:bg-white">
                   WhatsApp <span>↗</span>
                 </a>
-                <a href="https://github.com/hAck404-lab101" className="flex items-center justify-between rounded-full border border-zinc-200 bg-white px-5 py-3 text-sm font-semibold text-black transition hover:-translate-y-1 hover:bg-zinc-100">
+                <a href="https://github.com/hAck404-lab101" className="flex items-center justify-between rounded-full border border-[#8f7540]/30 bg-[#f7f2e8] px-5 py-3 text-sm font-semibold text-[#05040a] transition hover:-translate-y-1 hover:bg-white">
                   GitHub <span>↗</span>
                 </a>
               </div>
@@ -274,7 +274,7 @@ export default function Home() {
       </section>
 
       <footer className="relative z-10 px-4 pb-10">
-        <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 border-t border-white/10 pt-8 text-sm text-zinc-500 md:flex-row">
+        <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 border-t border-[#f3e7c8]/10 pt-8 text-sm text-[#f3e7c8]/45 md:flex-row">
           <p>Godwin Sozo Kumah</p>
           <p>DiMiles · Front-End & Full-Stack Developer</p>
         </div>

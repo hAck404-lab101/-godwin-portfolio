@@ -1,4 +1,4 @@
-const navItems = ['Work', 'Projects', 'Services', 'Stack', 'Contact'];
+import PortfolioHeader from '@/components/ui/portfolio-header';
 
 const projects = [
   {
@@ -72,9 +72,9 @@ const stack = [
 ];
 
 const stats = [
+  ['Godwin', 'portfolio identity'],
+  ['DiMiles', 'company/domain brand'],
   ['6+', 'real project directions'],
-  ['4', 'core service offers'],
-  ['1', 'clear developer brand'],
 ];
 
 function SectionHeader({ label, title, copy }: { label: string; title: string; copy: string }) {
@@ -94,42 +94,22 @@ export default function Home() {
   return (
     <main className="site-grid min-h-screen overflow-hidden bg-black text-white">
       <div className="pointer-events-none fixed inset-0 z-0 bg-[radial-gradient(circle_at_50%_0%,rgba(255,255,255,0.12),transparent_34rem)]" />
-
-      <header className="fixed left-0 right-0 top-4 z-50 px-4">
-        <nav className="glass mx-auto flex max-w-6xl items-center justify-between rounded-full px-4 py-3 shadow-2xl shadow-black/30 md:px-6">
-          <a href="#home" className="flex items-center gap-3">
-            <span className="grid h-9 w-9 place-items-center rounded-full bg-white text-sm font-black text-black">G</span>
-            <span className="hidden text-sm font-semibold text-white sm:inline">Godwin Sozo Kumah</span>
-          </a>
-
-          <div className="hidden items-center gap-1 rounded-full border border-white/10 bg-white/[0.03] p-1 md:flex">
-            {navItems.map((item) => (
-              <a key={item} href={`#${item.toLowerCase()}`} className="rounded-full px-4 py-2 text-sm font-medium text-zinc-400 transition hover:bg-white/10 hover:text-white">
-                {item}
-              </a>
-            ))}
-          </div>
-
-          <a href="#contact" className="rounded-full bg-white px-5 py-2.5 text-sm font-semibold text-black transition hover:-translate-y-0.5 hover:bg-zinc-200">
-            Contact
-          </a>
-        </nav>
-      </header>
+      <PortfolioHeader />
 
       <section id="home" className="relative z-10 px-4 pb-16 pt-36 md:pb-24 md:pt-44">
         <div className="mx-auto max-w-6xl">
-          <div className="max-w-5xl">
+          <div className="max-w-6xl">
             <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-4 py-2 text-sm text-zinc-300 shadow-2xl shadow-black/20 backdrop-blur">
-              <span className="h-2 w-2 rounded-full bg-emerald-400 shadow-[0_0_24px_rgba(52,211,153,0.8)]" />
-              Front-end & full-stack developer from Ghana
+              <span className="h-2 w-2 rounded-full bg-[#c3e41d] shadow-[0_0_24px_rgba(195,228,29,0.8)]" />
+              Personal portfolio by Godwin · Domain brand by DiMiles
             </div>
 
-            <h1 className="text-balance text-5xl font-semibold tracking-[-0.07em] text-white md:text-7xl lg:text-8xl">
-              I design and build clean systems for real businesses.
+            <h1 className="text-balance text-[4.2rem] font-black uppercase leading-[0.8] tracking-[-0.09em] text-[#c3e41d] sm:text-[6rem] md:text-[8rem] lg:text-[10rem]">
+              Godwin Sozo Kumah
             </h1>
 
-            <p className="mt-7 max-w-3xl text-lg leading-8 text-zinc-400 md:text-xl">
-              I’m Godwin Sozo Kumah, also known as s3yram. I build business websites, dashboards, ordering systems, payment flows, and admin tools that feel modern and actually work.
+            <p className="mt-8 max-w-3xl text-lg leading-8 text-zinc-400 md:text-xl">
+              Front-end and full-stack developer building business websites, dashboards, ordering systems, payment flows, and admin tools under the DiMiles company brand.
             </p>
 
             <div className="mt-9 flex flex-col gap-3 sm:flex-row">
@@ -137,7 +117,7 @@ export default function Home() {
                 View selected work <span className="ml-2">↗</span>
               </a>
               <a href="#contact" className="inline-flex items-center justify-center rounded-full border border-white/[0.12] bg-white/[0.04] px-6 py-3 text-sm font-semibold text-white transition hover:-translate-y-1 hover:bg-white/10">
-                Let’s talk
+                Work with DiMiles
               </a>
             </div>
           </div>
@@ -273,7 +253,7 @@ export default function Home() {
                   Have a project, job opportunity, or business idea?
                 </h2>
                 <p className="mt-6 max-w-2xl text-lg leading-8 text-zinc-600">
-                  Let’s build something clean, useful, and ready for real users.
+                  Let’s build something clean, useful, and ready for real users with Godwin / DiMiles.
                 </p>
               </div>
 
@@ -295,8 +275,8 @@ export default function Home() {
 
       <footer className="relative z-10 px-4 pb-10">
         <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 border-t border-white/10 pt-8 text-sm text-zinc-500 md:flex-row">
-          <p>Godwin Sozo Kumah / s3yram</p>
-          <p>Front-End & Full-Stack Developer</p>
+          <p>Godwin Sozo Kumah</p>
+          <p>DiMiles · Front-End & Full-Stack Developer</p>
         </div>
       </footer>
     </main>
